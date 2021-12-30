@@ -1,34 +1,51 @@
 package com.inflames1986.kotlinappone
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
-    private var btn1: Button? = null
-    private var btn2: Button? = null
+
+    lateinit var button: Button
+    lateinit var edittext: EditText
+//    var name = "Alex"
+
+    var copy = MyCopyClass()
+    var name = copy.arg1
+
+    var copy1 = NameCopy
+    var copyname = copy1.secondname
+
+    var cycles = ForCyclesClass()
+    var res = cycles.whenTesting("ccc").toString()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        btn1 = findViewById(R.id.button1)
-        btn1?.setOnClickListener(View.OnClickListener {
-            Toast.makeText(
-                    this@MainActivity,
-                    "Something doing!",
-                    Toast.LENGTH_SHORT
-            ).show()
-        })
+        Toast.makeText(this, "Kotlin App Started", Toast.LENGTH_SHORT).show()
 
-        btn2 = findViewById(R.id.button2)
-        btn2?.setOnClickListener(View.OnClickListener {
-            Toast.makeText(
-                    this@MainActivity,
-                    "Something doing!!!!!!",
-                    Toast.LENGTH_SHORT
-            ).show()
-        })
+        WeatherType.CLOUDY
+
+        button = findViewById(R.id.first_action_btn)
+        button.setOnClickListener {
+            Toast.makeText(this, "Hello, I'm Working", Toast.LENGTH_SHORT).show()
+        }
+
+        edittext = findViewById(R.id.edittext)
+        edittext.setText(copyname)
+
+        edittext = findViewById(R.id.edittext1)
+        edittext.setText(res)
+    }
+
+    companion object {
+        fun start(intent: Intent, context: Context) {
+            context.startActivity(intent)
+        }
     }
 }
