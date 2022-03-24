@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     var copyname = copy1.secondname
 
     var cycles = ForCyclesClass()
-    var res = cycles.whenTesting("ccc").toString()
+    var res = cycles.whenTesting("aaa").toString()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
