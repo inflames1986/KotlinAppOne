@@ -12,7 +12,6 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var button: Button
     lateinit var edittext: EditText
-//    var name = "Alex"
 
     var copy = MyCopyClass()
     var name = copy.arg1
@@ -21,7 +20,10 @@ class MainActivity : AppCompatActivity() {
     var copyname = copy1.secondname
 
     var cycles = ForCyclesClass()
-    var res = cycles.whenTesting("aaa").toString()
+    var res = cycles.whenTesting("ccc").toString()
+    var res1 = cycles.whenTesting2().toString()
+    var res2 = cycles.whenTesting3().toString()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +32,8 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, "Kotlin App Started", Toast.LENGTH_SHORT).show()
 
         WeatherType.CLOUDY
+
+        cycles.whenTesting3()
 
         button = findViewById(R.id.first_action_btn)
         button.setOnClickListener {
